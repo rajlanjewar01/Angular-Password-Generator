@@ -1,0 +1,43 @@
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-content">
+      <div class="content">
+  <h1 class="has-text-centered is-size-3">Password Generator</h1>
+
+  <div class="field">
+    <label for="input">Length:</label>
+    <div class="control">
+      <input type="text" (input)="onChangeLength($any($event.target).value)" class="input">
+    </div>
+  </div>
+
+  <div class="field">
+    <label><input type="checkbox" (change)="onChangeUseLetters()"> Use Letter </label>
+  </div>
+
+  <div class="field">
+    <label><input type="checkbox" (change)="onChangeUseNumber()"> Use Number</label>
+  </div>
+
+  <div class="field">
+    <label> <input type="checkbox" (change)="onChangeUseSymbol()"> Use Symbol</label>
+  </div>
+    
+
+  <div class="control">
+    <button (click)="generatePassword()" [disabled]="!(length && includeLetters || includeNumbers || includeSymbols)" class="button is-link">Generate</button> <!--- (event)="-property name from class-"  event binding-->
+  </div>
+    
+
+    <div class="field" *ngIf="password">   <!--  *ngIf  --- Structural directives-->
+      <label for="input">Your password</label>
+      <div class="control">
+        <input type="text" [value]="password" class="input notification is-info is-light"><!--- [attribute/element]="-property name from class-"   property binding-->
+      </div>
+    </div>  
+    <!--{{password}} --- Interpolation-->
+    </div>
+    </div>
+    </div>
+  </div>
